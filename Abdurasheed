@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abdurasheed Device World</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#050b14;
+ color:white;
+}
+header{
+ padding:20px;
+ background:#071a2e;
+ border-bottom:1px solid #245074;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+.logo{
+ max-width:1200px;
+ margin:auto;
+ font-size:22px;
+ font-weight:bold;
+}
+.logo span{color:#1683ff}
+
+.hero{
+ text-align:center;
+ padding:55px 15px 30px;
+ background:radial-gradient(circle at top,#123b65,#050b14 65%);
+}
+h1{
+ font-size:clamp(40px,8vw,70px);
+ margin:15px 0;
+}
+.hero p{
+ color:#a9bad0;
+ font-size:17px;
+}
+
+.search{
+ max-width:850px;
+ margin:30px auto;
+ display:flex;
+ padding:7px;
+ background:#0d1c2d;
+ border:1px solid #315474;
+ border-radius:16px;
+}
+.search input{
+ flex:1;
+ min-width:0;
+ background:none;
+ border:0;
+ outline:0;
+ color:white;
+ padding:15px;
+ font-size:17px;
+}
+.search button{
+ background:#1683ff;
+ color:white;
+ border:0;
+ border-radius:11px;
+ padding:0 25px;
+ font-weight:bold;
+}
+
+main{
+ width:94%;
+ max-width:1200px;
+ margin:auto;
+ padding:30px 0 70px;
+}
+
+.results-title{
+ margin:20px 0;
+}
+
+.results{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:18px;
+}
+
+.device{
+ background:#0c1c2e;
+ border:1px solid #23415e;
+ border-radius:18px;
+ overflow:hidden;
+ transition:.2s;
+}
+.device:hover{
+ transform:translateY(-4px);
+ border-color:#1683ff;
+}
+
+.device-image{
+ height:210px;
+ background:#071321;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:70px;
+}
+
+.device-body{
+ padding:20px;
+}
+
+.device-body h2{
+ margin:0 0 8px;
+}
+
+.brand{
+ color:#75bcff;
+ font-size:13px;
+}
+
+.spec{
+ display:flex;
+ justify-content:space-between;
+ padding:8px 0;
+ border-bottom:1px solid #1b334b;
+ color:#b9c9da;
+}
+
+.spec b{
+ color:white;
+}
+
+.details{
+ margin-top:15px;
+ width:100%;
+ padding:12px;
+ background:#1683ff;
+ border:0;
+ color:white;
+ border-radius:10px;
+ font-weight:bold;
+}
+
+.empty{
+ text-align:center;
+ padding:50px 15px;
+ color:#91a6bb;
+}
+
+.categories{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:14px;
+ margin-top:25px;
+}
+
+.category{
+ background:#0c1c2e;
+ border:1px solid #23415e;
+ border-radius:15px;
+ padding:25px 10px;
+ text-align:center;
+ cursor:pointer;
+}
+
+.category:hover{
+ border-color:#1683ff;
+}
+
+.icon{
+ font-size:38px;
+ margin-bottom:10px;
+}
+
+footer{
+ text-align:center;
+ padding:35px;
+ background:#030810;
+ color:#71869d;
+}
+
+@media(max-width:600px){
+ .search{
+  flex-direction:column;
+  gap:7px;
+ }
+ .search button{
+  height:50px;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+ABDURASHEED <span>DEVICE WORLD</span>
+</div>
+</header>
+
+
+<section class="hero">
+
+<h1>Device World</h1>
+
+<p>
+Search our own device database
+</p>
+
+<div class="search">
+
+<input
+id="searchBox"
+placeholder="Search Samsung, iPhone, Nokia..."
+autocomplete="off"
+>
+
+<button onclick="searchDevices()">
+SEARCH
+</button>
+
+</div>
+
+</section>
+
+
+<main>
+
+<h2 class="results-title" id="resultTitle">
+Featured Devices
+</h2>
+
+<div id="results" class="results"></div>
+
+
+<h2 style="margin-top:55px">
+Categories
+</h2>
+
+<div class="categories">
+
+<div class="category"
+onclick="categorySearch('phone')">
+<div class="icon">📱</div>
+Phones
+</div>
+
+<div class="category"
+onclick="categorySearch('keypad')">
+<div class="icon">☎️</div>
+Keypad Phones
+</div>
+
+<div class="category"
+onclick="categorySearch('laptop')">
+<div class="icon">💻</div>
+Laptops
+</div>
+
+<div class="category"
+onclick="categorySearch('tablet')">
+<div class="icon">📲</div>
+Tablets
+</div>
+
+<div class="category"
+onclick="categorySearch('tv')">
+<div class="icon">📺</div>
+Smart TVs
+</div>
+
+<div class="category"
+onclick="categorySearch('watch')">
+<div class="icon">⌚</div>
+Watches
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+ABDURASHEED DEVICE WORLD
+
+<br><br>
+
+© 2026 Abdurasheed Rajab
+
+</footer>
+
+
+<script>
+
+/*
+========================================
+ABDURASHEED DEVICE DATABASE
+========================================
+
+Add more devices inside this list.
+
+Every device can have:
+name
+brand
+type
+year
+display
+processor
+ram
+storage
+battery
+camera
+network
+price
+emoji
+*/
+
+const devices = [
+
+{
+ name:"Samsung Galaxy A22",
+ brand:"Samsung",
+ type:"phone",
+ year:"2021",
+ display:"6.4 inch Super AMOLED",
+ processor:"MediaTek Helio G80",
+ ram:"4GB / 6GB / 8GB",
+ storage:"64GB / 128GB",
+ battery:"5000 mAh",
+ camera:"48MP + 8MP + 2MP + 2MP",
+ network:"4G",
+ price:"Search local price",
+ emoji:"📱"
+},
+
+{
+ name:"iPhone 6",
+ brand:"Apple",
+ type:"phone",
+ year:"2014",
+ display:"4.7 inch Retina",
+ processor:"Apple A8",
+ ram:"1GB",
+ storage:"16GB / 32GB / 64GB / 128GB",
+ battery:"1810 mAh",
+ camera:"8MP",
+ network:"4G",
+ price:"Search local price",
+ emoji:"📱"
+},
+
+{
+ name:"Nokia 3310",
+ brand:"Nokia",
+ type:"keypad",
+ year:"2000",
+ display:"Monochrome display",
+ processor:"Feature-phone platform",
+ ram:"Not specified",
+ storage:"Internal memory",
+ battery:"Removable battery",
+ camera:"None",
+ network:"2G",
+ price:"Search local price",
+ emoji:"☎️"
+},
+
+{
+ name:"Tecno Camon 30",
+ brand:"Tecno",
+ type:"phone",
+ year:"2024",
+ display:"6.78 inch AMOLED",
+ processor:"MediaTek Helio G99",
+ ram:"8GB",
+ storage:"256GB",
+ battery:"5000 mAh",
+ camera:"50MP main",
+ network:"4G",
+ price:"Search local price",
+ emoji:"📱"
+},
+
+{
+ name:"Samsung Galaxy S26",
+ brand:"Samsung",
+ type:"phone",
+ year:"2026",
+ display:"Search official specifications",
+ processor:"Search official specifications",
+ ram:"Search official specifications",
+ storage:"Search official specifications",
+ battery:"Search official specifications",
+ camera:"Search official specifications",
+ network:"5G",
+ price:"Search current price",
+ emoji:"📱"
+},
+
+{
+ name:"iPad",
+ brand:"Apple",
+ type:"tablet",
+ year:"2026",
+ display:"Tablet display",
+ processor:"Apple silicon",
+ ram:"Model dependent",
+ storage:"Model dependent",
+ battery:"Model dependent",
+ camera:"Model dependent",
+ network:"Wi-Fi / Cellular",
+ price:"Model dependent",
+ emoji:"📲"
+},
+
+{
+ name:"Galaxy Watch",
+ brand:"Samsung",
+ type:"watch",
+ year:"2026",
+ display:"AMOLED",
+ processor:"Model dependent",
+ ram:"Model dependent",
+ storage:"Model dependent",
+ battery:"Model dependent",
+ camera:"None",
+ network:"Bluetooth / LTE",
+ price:"Model dependent",
+ emoji:"⌚"
+}
+
+];
+
+
+function render(list){
+
+ const area=document.getElementById("results");
+
+ area.innerHTML="";
+
+ if(list.length===0){
+
+   area.innerHTML=
+   '<div class="empty">No device found in our database.<br><br>'+
+   'Try another model or add it to the database.</div>';
+
+   return;
+ }
+
+
+ list.forEach((d,index)=>{
+
+   const card=document.createElement("div");
+
+   card.className="device";
+
+
+   card.innerHTML=`
+
+   <div class="device-image">
+      ${d.emoji}
+   </div>
+
+   <div class="device-body">
+
+      <div class="brand">${d.brand} • ${d.year}</div>
+
+      <h2>${d.name}</h2>
+
+      <div class="spec">
+        <span>Display</span>
+        <b>${d.display}</b>
+      </div>
+
+      <div class="spec">
+        <span>Processor</span>
+        <b>${d.processor}</b>
+      </div>
+
+      <div class="spec">
+        <span>RAM</span>
+        <b>${d.ram}</b>
+      </div>
+
+      <div class="spec">
+        <span>Storage</span>
+        <b>${d.storage}</b>
+      </div>
+
+      <div class="spec">
+        <span>Battery</span>
+        <b>${d.battery}</b>
+      </div>
+
+      <div class="spec">
+        <span>Camera</span>
+        <b>${d.camera}</b>
+      </div>
+
+      <div class="spec">
+        <span>Network</span>
+        <b>${d.network}</b>
+      </div>
+
+      <div class="spec">
+        <span>Price</span>
+        <b>${d.price}</b>
+      </div>
+
+      <button
+      class="details"
+      onclick="showDevice(${index})">
+      VIEW DETAILS
+      </button>
+
+   </div>
+   `;
+
+
+   area.appendChild(card);
+
+ });
+
+}
+
+
+function searchDevices(){
+
+ const q=
+ document.getElementById("searchBox")
+ .value
+ .toLowerCase()
+ .trim();
+
+
+ if(q===""){
+
+   render(devices);
+
+   document.getElementById("resultTitle")
+   .textContent="Featured Devices";
+
+   return;
+ }
+
+
+ const found=devices.filter(d=>
+
+   d.name.toLowerCase().includes(q) ||
+
+   d.brand.toLowerCase().includes(q) ||
+
+   d.type.toLowerCase().includes(q)
+
+ );
+
+
+ document.getElementById("resultTitle")
+ .textContent=
+ "Search results for: "+q;
+
+
+ render(found);
+
+}
+
+
+function categorySearch(type){
+
+ document.getElementById("searchBox").value=type;
+
+ searchDevices();
+
+ window.scrollTo({
+   top:0,
+   behavior:"smooth"
+ });
+
+}
+
+
+function showDevice(index){
+
+ const d=devices[index];
+
+ alert(
+
+ d.name+"\n\n"+
+
+ "Brand: "+d.brand+"\n"+
+ "Year: "+d.year+"\n"+
+ "Display: "+d.display+"\n"+
+ "Processor: "+d.processor+"\n"+
+ "RAM: "+d.ram+"\n"+
+ "Storage: "+d.storage+"\n"+
+ "Battery: "+d.battery+"\n"+
+ "Camera: "+d.camera+"\n"+
+ "Network: "+d.network+"\n"+
+ "Price: "+d.price
+
+ );
+
+}
+
+
+document
+.getElementById("searchBox")
+.addEventListener("keydown",function(e){
+
+ if(e.key==="Enter"){
+   searchDevices();
+ }
+
+});
+
+
+render(devices);
+
+</script>
+
+</body>
+</html>
