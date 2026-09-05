@@ -2,254 +2,195 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Abdurasheed Device World</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
+*{box-sizing:border-box}
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#050b14;
-    color:#fff;
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#050b14;
+ color:white;
 }
-
 header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(5,11,20,.96);
-    border-bottom:1px solid #1d3955;
-    padding:18px 6%;
+ padding:20px;
+ background:#071a2e;
+ border-bottom:1px solid #245074;
+ position:sticky;
+ top:0;
+ z-index:10;
 }
-
-.nav{
-    max-width:1250px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
 .logo{
-    font-size:21px;
-    font-weight:900;
+ max-width:1200px;
+ margin:auto;
+ font-size:22px;
+ font-weight:bold;
 }
-
-.logo span{
-    color:#1683ff;
-}
-
-.nav a{
-    color:#c9d8e8;
-    text-decoration:none;
-    margin-left:22px;
-}
+.logo span{color:#1683ff}
 
 .hero{
-    min-height:650px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:60px 18px;
-    background:
-      radial-gradient(circle at top,#12355c 0,#071321 42%,#050b14 75%);
+ text-align:center;
+ padding:55px 15px 30px;
+ background:radial-gradient(circle at top,#123b65,#050b14 65%);
 }
-
-.hero-content{
-    width:100%;
-    max-width:1000px;
-}
-
-.badge{
-    display:inline-block;
-    padding:8px 15px;
-    border:1px solid #27699e;
-    background:#09213a;
-    border-radius:30px;
-    color:#80c5ff;
-    font-size:13px;
-}
-
 h1{
-    font-size:clamp(42px,8vw,78px);
-    margin:22px 0 15px;
-    line-height:.98;
+ font-size:clamp(40px,8vw,70px);
+ margin:15px 0;
 }
-
 .hero p{
-    max-width:720px;
-    margin:auto;
-    color:#a9bbcf;
-    font-size:18px;
-    line-height:1.6;
+ color:#a9bad0;
+ font-size:17px;
 }
 
-.search-area{
-    max-width:850px;
-    margin:35px auto 15px;
-    display:flex;
-    padding:7px;
-    background:#0d1b2b;
-    border:1px solid #315474;
-    border-radius:17px;
+.search{
+ max-width:850px;
+ margin:30px auto;
+ display:flex;
+ padding:7px;
+ background:#0d1c2d;
+ border:1px solid #315474;
+ border-radius:16px;
 }
-
-.search-area input{
-    flex:1;
-    min-width:0;
-    padding:16px;
-    background:transparent;
-    border:0;
-    outline:0;
-    color:#fff;
-    font-size:17px;
+.search input{
+ flex:1;
+ min-width:0;
+ background:none;
+ border:0;
+ outline:0;
+ color:white;
+ padding:15px;
+ font-size:17px;
 }
-
-.search-area button{
-    background:#1683ff;
-    color:#fff;
-    border:0;
-    border-radius:11px;
-    padding:0 28px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.quick{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:8px;
-}
-
-button{
-    cursor:pointer;
-}
-
-.quick button,
-.action button{
-    color:#eaf4ff;
-    background:#0c1d31;
-    border:1px solid #294967;
-    border-radius:10px;
-    padding:11px 15px;
-}
-
-.quick button:hover,
-.action button:hover{
-    background:#1683ff;
-}
-
-.action{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    margin-top:20px;
+.search button{
+ background:#1683ff;
+ color:white;
+ border:0;
+ border-radius:11px;
+ padding:0 25px;
+ font-weight:bold;
 }
 
 main{
-    width:94%;
-    max-width:1250px;
-    margin:auto;
-    padding:40px 0 80px;
+ width:94%;
+ max-width:1200px;
+ margin:auto;
+ padding:30px 0 70px;
 }
 
-.section-title{
-    font-size:28px;
-    margin-bottom:20px;
+.results-title{
+ margin:20px 0;
+}
+
+.results{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:18px;
+}
+
+.device{
+ background:#0c1c2e;
+ border:1px solid #23415e;
+ border-radius:18px;
+ overflow:hidden;
+ transition:.2s;
+}
+.device:hover{
+ transform:translateY(-4px);
+ border-color:#1683ff;
+}
+
+.device-image{
+ height:210px;
+ background:#071321;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:70px;
+}
+
+.device-body{
+ padding:20px;
+}
+
+.device-body h2{
+ margin:0 0 8px;
+}
+
+.brand{
+ color:#75bcff;
+ font-size:13px;
+}
+
+.spec{
+ display:flex;
+ justify-content:space-between;
+ padding:8px 0;
+ border-bottom:1px solid #1b334b;
+ color:#b9c9da;
+}
+
+.spec b{
+ color:white;
+}
+
+.details{
+ margin-top:15px;
+ width:100%;
+ padding:12px;
+ background:#1683ff;
+ border:0;
+ color:white;
+ border-radius:10px;
+ font-weight:bold;
+}
+
+.empty{
+ text-align:center;
+ padding:50px 15px;
+ color:#91a6bb;
 }
 
 .categories{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:16px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:14px;
+ margin-top:25px;
 }
 
 .category{
-    padding:28px 15px;
-    text-align:center;
-    border-radius:17px;
-    background:#0b1929;
-    border:1px solid #1e3a56;
-    transition:.2s;
+ background:#0c1c2e;
+ border:1px solid #23415e;
+ border-radius:15px;
+ padding:25px 10px;
+ text-align:center;
+ cursor:pointer;
 }
 
 .category:hover{
-    transform:translateY(-5px);
-    border-color:#1683ff;
+ border-color:#1683ff;
 }
 
-.category .icon{
-    font-size:40px;
-    margin-bottom:12px;
-}
-
-.feature{
-    margin-top:45px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:15px;
-}
-
-.feature-card{
-    background:#0b1929;
-    border:1px solid #1e3a56;
-    border-radius:16px;
-    padding:23px;
-}
-
-.feature-card h3{
-    margin-bottom:10px;
-}
-
-.feature-card p{
-    color:#98abc0;
-    line-height:1.5;
-}
-
-.notice{
-    margin-top:45px;
-    padding:25px;
-    border-radius:17px;
-    background:#091a2c;
-    border:1px solid #1e3a56;
-    color:#afc1d4;
-    line-height:1.7;
+.icon{
+ font-size:38px;
+ margin-bottom:10px;
 }
 
 footer{
-    text-align:center;
-    padding:35px 15px;
-    background:#030810;
-    color:#71869d;
+ text-align:center;
+ padding:35px;
+ background:#030810;
+ color:#71869d;
 }
 
-@media(max-width:650px){
-
-    .nav a{
-        display:none;
-    }
-
-    .search-area{
-        flex-direction:column;
-        gap:7px;
-    }
-
-    .search-area button{
-        height:52px;
-    }
-
-    h1{
-        font-size:45px;
-    }
+@media(max-width:600px){
+ .search{
+  flex-direction:column;
+  gap:7px;
+ }
+ .search button{
+  height:50px;
+ }
 }
 </style>
 </head>
@@ -257,106 +198,31 @@ footer{
 <body>
 
 <header>
-<div class="nav">
-
 <div class="logo">
 ABDURASHEED <span>DEVICE WORLD</span>
-</div>
-
-<div>
-<a href="#categories">Devices</a>
-<a href="#features">Features</a>
-</div>
-
 </div>
 </header>
 
 
 <section class="hero">
 
-<div class="hero-content">
-
-<span class="badge">
-LIVE DEVICE SEARCH
-</span>
-
-<h1>
-Find Any Device.
-</h1>
+<h1>Device World</h1>
 
 <p>
-Search phones, keypad phones, laptops, tablets,
-smart TVs, watches and other technology.
+Search our own device database
 </p>
 
-
-<div class="search-area">
+<div class="search">
 
 <input
-id="deviceInput"
-type="search"
-placeholder="Search a device e.g. Samsung Galaxy A22"
+id="searchBox"
+placeholder="Search Samsung, iPhone, Nokia..."
+autocomplete="off"
 >
 
-<button onclick="webSearch()">
+<button onclick="searchDevices()">
 SEARCH
 </button>
-
-</div>
-
-
-<div class="quick">
-
-<button onclick="chooseDevice('Samsung Galaxy A22')">
-Galaxy A22
-</button>
-
-<button onclick="chooseDevice('iPhone 6')">
-iPhone 6
-</button>
-
-<button onclick="chooseDevice('Nokia 3310')">
-Nokia 3310
-</button>
-
-<button onclick="chooseDevice('Tecno Camon 30')">
-Tecno Camon 30
-</button>
-
-<button onclick="chooseDevice('Samsung Galaxy S26')">
-Galaxy S26
-</button>
-
-</div>
-
-
-<div class="action">
-
-<button onclick="search('web')">
-🌐 Web
-</button>
-
-<button onclick="search('images')">
-🖼 Images
-</button>
-
-<button onclick="search('specs')">
-📋 Specifications
-</button>
-
-<button onclick="search('price')">
-💰 Price
-</button>
-
-<button onclick="search('reviews')">
-⭐ Reviews
-</button>
-
-<button onclick="search('videos')">
-▶ Videos
-</button>
-
-</div>
 
 </div>
 
@@ -365,134 +231,54 @@ Galaxy S26
 
 <main>
 
-<section id="categories">
+<h2 class="results-title" id="resultTitle">
+Featured Devices
+</h2>
 
-<h2 class="section-title">
-Explore Devices
+<div id="results" class="results"></div>
+
+
+<h2 style="margin-top:55px">
+Categories
 </h2>
 
 <div class="categories">
 
 <div class="category"
-onclick="chooseDevice('smartphones')">
-
+onclick="categorySearch('phone')">
 <div class="icon">📱</div>
-<strong>Smartphones</strong>
-
+Phones
 </div>
 
-
 <div class="category"
-onclick="chooseDevice('keypad phones')">
-
+onclick="categorySearch('keypad')">
 <div class="icon">☎️</div>
-<strong>Keypad Phones</strong>
-
+Keypad Phones
 </div>
 
-
 <div class="category"
-onclick="chooseDevice('laptops')">
-
+onclick="categorySearch('laptop')">
 <div class="icon">💻</div>
-<strong>Laptops</strong>
-
+Laptops
 </div>
 
-
 <div class="category"
-onclick="chooseDevice('tablets')">
-
+onclick="categorySearch('tablet')">
 <div class="icon">📲</div>
-<strong>Tablets</strong>
-
+Tablets
 </div>
 
-
 <div class="category"
-onclick="chooseDevice('smart TVs')">
-
+onclick="categorySearch('tv')">
 <div class="icon">📺</div>
-<strong>Smart TVs</strong>
-
+Smart TVs
 </div>
-
 
 <div class="category"
-onclick="chooseDevice('smart watches')">
-
+onclick="categorySearch('watch')">
 <div class="icon">⌚</div>
-<strong>Smart Watches</strong>
-
+Watches
 </div>
-
-</div>
-
-</section>
-
-
-<section id="features">
-
-<h2 class="section-title" style="margin-top:50px">
-What You Can Find
-</h2>
-
-<div class="feature">
-
-<div class="feature-card">
-<h3>📋 Specifications</h3>
-<p>
-Search for display, processor, RAM, storage,
-battery, cameras, network support and more.
-</p>
-</div>
-
-
-<div class="feature-card">
-<h3>🖼 Device Pictures</h3>
-<p>
-Open image results for the device you search for.
-</p>
-</div>
-
-
-<div class="feature-card">
-<h3>💰 Prices</h3>
-<p>
-Search current web results for device prices.
-</p>
-</div>
-
-
-<div class="feature-card">
-<h3>⭐ Reviews</h3>
-<p>
-Find reviews and opinions about the device.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<div class="notice">
-
-<strong>About Abdurasheed Device World</strong>
-
-<br><br>
-
-This website uses live web searches rather than pretending
-that a small list contains every device in existence.
-
-When you search for a device, the buttons can open web,
-image, specification, price, review and video results.
-
-<br><br>
-
-<strong>Important:</strong>
-The website itself is static, so it can be hosted online
-without Cxxdroid running or your phone being switched on.
 
 </div>
 
@@ -512,137 +298,331 @@ ABDURASHEED DEVICE WORLD
 
 <script>
 
-const input = document.getElementById("deviceInput");
+/*
+========================================
+ABDURASHEED DEVICE DATABASE
+========================================
+
+Add more devices inside this list.
+
+Every device can have:
+name
+brand
+type
+year
+display
+processor
+ram
+storage
+battery
+camera
+network
+price
+emoji
+*/
+
+const devices = [
+
+{
+ name:"Samsung Galaxy A22",
+ brand:"Samsung",
+ type:"phone",
+ year:"2021",
+ display:"6.4 inch Super AMOLED",
+ processor:"MediaTek Helio G80",
+ ram:"4GB / 6GB / 8GB",
+ storage:"64GB / 128GB",
+ battery:"5000 mAh",
+ camera:"48MP + 8MP + 2MP + 2MP",
+ network:"4G",
+ price:"Search local price",
+ emoji:"📱"
+},
+
+{
+ name:"iPhone 6",
+ brand:"Apple",
+ type:"phone",
+ year:"2014",
+ display:"4.7 inch Retina",
+ processor:"Apple A8",
+ ram:"1GB",
+ storage:"16GB / 32GB / 64GB / 128GB",
+ battery:"1810 mAh",
+ camera:"8MP",
+ network:"4G",
+ price:"Search local price",
+ emoji:"📱"
+},
+
+{
+ name:"Nokia 3310",
+ brand:"Nokia",
+ type:"keypad",
+ year:"2000",
+ display:"Monochrome display",
+ processor:"Feature-phone platform",
+ ram:"Not specified",
+ storage:"Internal memory",
+ battery:"Removable battery",
+ camera:"None",
+ network:"2G",
+ price:"Search local price",
+ emoji:"☎️"
+},
+
+{
+ name:"Tecno Camon 30",
+ brand:"Tecno",
+ type:"phone",
+ year:"2024",
+ display:"6.78 inch AMOLED",
+ processor:"MediaTek Helio G99",
+ ram:"8GB",
+ storage:"256GB",
+ battery:"5000 mAh",
+ camera:"50MP main",
+ network:"4G",
+ price:"Search local price",
+ emoji:"📱"
+},
+
+{
+ name:"Samsung Galaxy S26",
+ brand:"Samsung",
+ type:"phone",
+ year:"2026",
+ display:"Search official specifications",
+ processor:"Search official specifications",
+ ram:"Search official specifications",
+ storage:"Search official specifications",
+ battery:"Search official specifications",
+ camera:"Search official specifications",
+ network:"5G",
+ price:"Search current price",
+ emoji:"📱"
+},
+
+{
+ name:"iPad",
+ brand:"Apple",
+ type:"tablet",
+ year:"2026",
+ display:"Tablet display",
+ processor:"Apple silicon",
+ ram:"Model dependent",
+ storage:"Model dependent",
+ battery:"Model dependent",
+ camera:"Model dependent",
+ network:"Wi-Fi / Cellular",
+ price:"Model dependent",
+ emoji:"📲"
+},
+
+{
+ name:"Galaxy Watch",
+ brand:"Samsung",
+ type:"watch",
+ year:"2026",
+ display:"AMOLED",
+ processor:"Model dependent",
+ ram:"Model dependent",
+ storage:"Model dependent",
+ battery:"Model dependent",
+ camera:"None",
+ network:"Bluetooth / LTE",
+ price:"Model dependent",
+ emoji:"⌚"
+}
+
+];
 
 
-function getDevice(){
+function render(list){
 
-    const value = input.value.trim();
+ const area=document.getElementById("results");
 
-    if(value === ""){
+ area.innerHTML="";
 
-        alert("Please enter a device name first.");
+ if(list.length===0){
 
-        return null;
-    }
+   area.innerHTML=
+   '<div class="empty">No device found in our database.<br><br>'+
+   'Try another model or add it to the database.</div>';
 
-    return value;
+   return;
+ }
+
+
+ list.forEach((d,index)=>{
+
+   const card=document.createElement("div");
+
+   card.className="device";
+
+
+   card.innerHTML=`
+
+   <div class="device-image">
+      ${d.emoji}
+   </div>
+
+   <div class="device-body">
+
+      <div class="brand">${d.brand} • ${d.year}</div>
+
+      <h2>${d.name}</h2>
+
+      <div class="spec">
+        <span>Display</span>
+        <b>${d.display}</b>
+      </div>
+
+      <div class="spec">
+        <span>Processor</span>
+        <b>${d.processor}</b>
+      </div>
+
+      <div class="spec">
+        <span>RAM</span>
+        <b>${d.ram}</b>
+      </div>
+
+      <div class="spec">
+        <span>Storage</span>
+        <b>${d.storage}</b>
+      </div>
+
+      <div class="spec">
+        <span>Battery</span>
+        <b>${d.battery}</b>
+      </div>
+
+      <div class="spec">
+        <span>Camera</span>
+        <b>${d.camera}</b>
+      </div>
+
+      <div class="spec">
+        <span>Network</span>
+        <b>${d.network}</b>
+      </div>
+
+      <div class="spec">
+        <span>Price</span>
+        <b>${d.price}</b>
+      </div>
+
+      <button
+      class="details"
+      onclick="showDevice(${index})">
+      VIEW DETAILS
+      </button>
+
+   </div>
+   `;
+
+
+   area.appendChild(card);
+
+ });
+
 }
 
 
-function chooseDevice(name){
+function searchDevices(){
 
-    input.value = name;
+ const q=
+ document.getElementById("searchBox")
+ .value
+ .toLowerCase()
+ .trim();
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+
+ if(q===""){
+
+   render(devices);
+
+   document.getElementById("resultTitle")
+   .textContent="Featured Devices";
+
+   return;
+ }
+
+
+ const found=devices.filter(d=>
+
+   d.name.toLowerCase().includes(q) ||
+
+   d.brand.toLowerCase().includes(q) ||
+
+   d.type.toLowerCase().includes(q)
+
+ );
+
+
+ document.getElementById("resultTitle")
+ .textContent=
+ "Search results for: "+q;
+
+
+ render(found);
+
 }
 
 
-function webSearch(){
+function categorySearch(type){
 
-    search("web");
+ document.getElementById("searchBox").value=type;
+
+ searchDevices();
+
+ window.scrollTo({
+   top:0,
+   behavior:"smooth"
+ });
+
 }
 
 
-function search(type){
+function showDevice(index){
 
-    const device = getDevice();
+ const d=devices[index];
 
-    if(!device){
-        return;
-    }
+ alert(
 
-    let query = device;
-    let url = "";
+ d.name+"\n\n"+
 
+ "Brand: "+d.brand+"\n"+
+ "Year: "+d.year+"\n"+
+ "Display: "+d.display+"\n"+
+ "Processor: "+d.processor+"\n"+
+ "RAM: "+d.ram+"\n"+
+ "Storage: "+d.storage+"\n"+
+ "Battery: "+d.battery+"\n"+
+ "Camera: "+d.camera+"\n"+
+ "Network: "+d.network+"\n"+
+ "Price: "+d.price
 
-    if(type === "web"){
+ );
 
-        url =
-        "https://www.google.com/search?q="
-        + encodeURIComponent(query);
-
-    }
-
-
-    if(type === "images"){
-
-        url =
-        "https://www.google.com/search?tbm=isch&q="
-        + encodeURIComponent(query);
-
-    }
-
-
-    if(type === "specs"){
-
-        query += " full specifications";
-
-        url =
-        "https://www.google.com/search?q="
-        + encodeURIComponent(query);
-
-    }
-
-
-    if(type === "price"){
-
-        query += " price";
-
-        url =
-        "https://www.google.com/search?q="
-        + encodeURIComponent(query);
-
-    }
-
-
-    if(type === "reviews"){
-
-        query += " review";
-
-        url =
-        "https://www.google.com/search?q="
-        + encodeURIComponent(query);
-
-    }
-
-
-    if(type === "videos"){
-
-        url =
-        "https://www.google.com/search?tbm=vid&q="
-        + encodeURIComponent(query);
-
-    }
-
-
-    window.open(
-        url,
-        "_blank",
-        "noopener,noreferrer"
-    );
 }
 
 
-input.addEventListener(
-    "keydown",
-    function(event){
+document
+.getElementById("searchBox")
+.addEventListener("keydown",function(e){
 
-        if(event.key === "Enter"){
+ if(e.key==="Enter"){
+   searchDevices();
+ }
 
-            webSearch();
+});
 
-        }
 
-    }
-);
+render(devices);
 
 </script>
 
 </body>
 </html>
-
-
